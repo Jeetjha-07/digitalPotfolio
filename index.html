@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeet Jha — Data Science & Software Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-progress"></div>
+
+<!-- CURSOR SPOTLIGHT -->
+<div id="cursor-glow"></div>
+
+<!-- BACK TO TOP -->
+<button id="back-to-top" title="Back to Top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<!-- THEME TOGGLE -->
+<button id="theme-toggle" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">Jeet<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="Jeet_Jha_ECV.pdf" download class="nav-cv"><i class="fa-solid fa-download"></i> Download CV</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <canvas id="particles-canvas"></canvas>
+  <div class="hero-bg-accent"></div>
+  <div class="hero-bg-accent2"></div>
+  <div class="hero-inner">
+    <div class="hero-photo-wrap">
+      <div class="photo-ring">
+        <img src="./images/JeetJha.jpg" alt="Jeet Jha"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="photo-fallback" style="display:none;">
+          <i class="fa-solid fa-user"></i>
+          <span>Add Photo</span>
+        </div>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Open to Opportunities
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1 class="hero-name">Jeet <span>Jha</span></h1>
+      <p class="hero-tagline">
+        <span id="typewriter"></span><span class="cursor-blink">|</span>
+      </p>
+      <p class="hero-summary">
+        A passionate B.Tech Computer Science student at Lovely Professional University, crafting intelligent solutions at the intersection of Data Science, Machine Learning, and Software Development. I turn data into insights and ideas into applications.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary"><i class="fa-solid fa-briefcase"></i> View Projects</a>
+        <a href="#contact" class="btn-outline"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+      </div>
+
+      <!-- Dynamic Stats: data-count-type drives auto-calculation from DOM -->
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num" data-count-type="projects"><span class="count">0</span><span>+</span></div>
+          <div class="stat-label">Projects Built</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count-type="certificates"><span class="count">0</span><span>+</span></div>
+          <div class="stat-label">Certificates</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-target="857" data-decimal="true"><span class="count">0</span></div>
+          <div class="stat-label">CGPA</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count-type="technologies"><span class="count">0</span><span>+</span></div>
+          <div class="stat-label">Technologies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <!-- <span class="section-tag">// 01. About Me</span> -->
+      <h2 class="section-title">The Mind Behind the <span class="accent">Code</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-card-big">
+          <p class="about-quote">
+            "I believe every dataset has a story waiting to be told, and every problem has an elegant solution — you just need the right tools and curiosity to find them."
+          </p>
+          <div class="about-badges">
+            <span class="badge">Data Science</span>
+            <span class="badge teal">Machine Learning</span>
+            <span class="badge gold">Software Dev</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="about-timeline reveal">
+        <h3 class="timeline-heading">My Journey</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2023</span>
+              <h4 class="tl-title">Started B.Tech CSE</h4>
+              <p class="tl-desc">Enrolled at Lovely Professional University. Began exploring programming with C and C++.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot teal"></div>
+            <div class="tl-content">
+              <span class="tl-year teal">2024</span>
+              <h4 class="tl-title">Discovered Data Science</h4>
+              <p class="tl-desc">Fell in love with Python, Pandas, and Machine Learning. Started building real projects with data.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot gold"></div>
+            <div class="tl-content">
+              <span class="tl-year gold">2025</span>
+              <h4 class="tl-title">Flutter & Mobile Dev</h4>
+              <p class="tl-desc">Completed CipherSchools training in Flutter. Built the E-Canteen app from scratch.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot accent"></div>
+            <div class="tl-content">
+              <span class="tl-year accent">2026</span>
+              <h4 class="tl-title">Currently Learning</h4>
+              <p class="tl-desc">Deep Learning, Neural Networks, and expanding full-stack capabilities. CGPA: 8.57.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fun Facts -->
+      <div class="fun-facts reveal">
+        <div class="fact-item"><i class="fa-solid fa-graduation-cap"></i><span>8.57 CGPA at LPU</span></div>
+        <div class="fact-item"><i class="fa-solid fa-fire"></i><span>Currently exploring Deep Learning</span></div>
+        <div class="fact-item"><i class="fa-solid fa-code-branch"></i><span>2+ real-world projects shipped</span></div>
+        <div class="fact-item"><i class="fa-solid fa-award"></i><span>4+ professional certifications</span></div>
+        <div class="fact-item"><i class="fa-solid fa-map-marker-alt"></i><span>Based in Punjab, India</span></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         EDUCATION SECTION (inside About)
+         ─ Add your university image at ./images/lpu-campus.jpg
+         ═══════════════════════════════════════════════ -->
+    <div class="education-section reveal">
+      <h3 class="edu-heading"><i class="fa-solid fa-university"></i> Education</h3>
+      <div class="edu-card">
+        <!-- University Image -->
+        <div class="edu-img-wrap">
+          <img
+            src="./images/lpu-campus.jpeg"
+            alt="Lovely Professional University Campus"
+            class="edu-img"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+          <div class="edu-img-fallback">
+            <i class="fa-solid fa-university"></i>
+            <span>Add LPU Campus Image<br><code>./images/lpu-campus.jpeg</code></span>
+          </div>
+          <div class="edu-img-badge">
+            <i class="fa-solid fa-star"></i> 8.57 CGPA
+          </div>
+        </div>
+        <!-- University Details -->
+        <div class="edu-details">
+          <div class="edu-uni-logo-row">
+            <div class="edu-uni-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div>
+              <div class="edu-uni-name">Lovely Professional University</div>
+              <div class="edu-uni-location"><i class="fa-solid fa-location-dot"></i> Phagwara, Punjab, India</div>
+            </div>
+          </div>
+          <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="edu-duration"><i class="fa-regular fa-calendar"></i> 2023 – 2027 (Expected)</div>
+          <div class="edu-highlights">
+            <div class="edu-highlight"><i class="fa-solid fa-trophy"></i> CGPA: <strong>8.57</strong></div>
+            <div class="edu-highlight"><i class="fa-solid fa-book-open"></i> Core: Data Structures, Algorithms, DBMS, OS</div>
+            <div class="edu-highlight"><i class="fa-solid fa-flask"></i> Focus: Data Science &amp; Machine Learning</div>
+          </div>
+          <div class="edu-tags">
+            <span class="edu-tag">CSE</span>
+            <span class="edu-tag teal">Data Science</span>
+            <span class="edu-tag gold">B.Tech</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <!-- <span class="section-tag">// 02. Skills</span> -->
+      <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Skill Filter Tabs -->
+    <div class="skill-tabs reveal">
+      <button class="skill-tab active" data-filter="all">All</button>
+      <button class="skill-tab" data-filter="lang">Languages</button>
+      <button class="skill-tab" data-filter="web">Frameworks</button>
+      <button class="skill-tab" data-filter="tools">Tools</button>
+      <button class="skill-tab" data-filter="soft">Soft Skills</button>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-category reveal reveal-delay-1" data-category="lang">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon lang"><i class="fa-solid fa-terminal"></i></div>
+          <span class="skill-cat-title">Programming Languages</span>
+        </div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">Python</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill lang" data-width="90"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">C++</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill lang" data-width="80"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">Java</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill lang" data-width="75"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">SQL</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-fill lang" data-width="78"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">C</span><span class="skill-pct">72%</span></div><div class="skill-track"><div class="skill-fill lang" data-width="72"></div></div></div>
+      </div>
+
+      <div class="skill-category reveal reveal-delay-2" data-category="web">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon web"><i class="fa-solid fa-layer-group"></i></div>
+          <span class="skill-cat-title">Frameworks &amp; Web</span>
+        </div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">HTML</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill web" data-width="85"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">CSS</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill web" data-width="80"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">Flutter</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill web" data-width="70"></div></div></div>
+      </div>
+
+      <div class="skill-category reveal reveal-delay-3" data-category="tools">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon tools"><i class="fa-solid fa-wrench"></i></div>
+          <span class="skill-cat-title">Tools &amp; Platforms</span>
+        </div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">Git / GitHub</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill tools" data-width="85"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">MySQL</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill tools" data-width="80"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">Jupyter Notebook</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill tools" data-width="88"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">VS Code</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill tools" data-width="90"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-top"><span class="skill-name">Salesforce</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill tools" data-width="65"></div></div></div>
+      </div>
+
+      <div class="skill-category reveal reveal-delay-4" data-category="soft">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon soft"><i class="fa-solid fa-brain"></i></div>
+          <span class="skill-cat-title">Soft Skills</span>
+        </div>
+        <div class="soft-chips">
+          <span class="soft-chip"><i class="fa-solid fa-puzzle-piece"></i> Problem Solver</span>
+          <span class="soft-chip"><i class="fa-solid fa-bolt"></i> Quick Learner</span>
+          <span class="soft-chip"><i class="fa-solid fa-users"></i> Team Player</span>
+          <span class="soft-chip"><i class="fa-solid fa-arrows-rotate"></i> Adaptability</span>
+          <span class="soft-chip"><i class="fa-solid fa-comments"></i> Communication</span>
+          <span class="soft-chip"><i class="fa-solid fa-clock"></i> Time Management</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <!-- <span class="section-tag">// 03. Projects</span> -->
+      <h2 class="section-title">Projects I've <span class="accent">Built</span></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Project Filter -->
+    <div class="project-filters reveal">
+      <button class="proj-filter active" data-filter="all">All</button>
+      <button class="proj-filter" data-filter="mobile">Mobile</button>
+      <button class="proj-filter" data-filter="ml">ML / AI</button>
+      <button class="proj-filter" data-filter="powerbi">Power BI</button>
+      <button class="proj-filter" data-filter="web">Web</button>
+    </div>
+
+    <!-- data-tag="mobile" is read by the dynamic counter to count tech tags per project -->
+    <div class="projects-grid" id="projects-grid">
+
+      <div class="project-card reveal reveal-delay-1" data-tag="mobile" data-images="./images/Project1/Menu.png,./images/Project1/cart.png,./images/Project1/Login.png,./images/Project1/order-history.png" onclick="event.stopPropagation()">
+        <div class="project-img-zone" role="button" aria-label="Open E-Canteen image gallery">
+          <img src="./images/Project1/Menu.png" alt="E-Canteen menu screen" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="project-img-placeholder">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <span>&#128248; Add E-Canteen Screenshot</span>
+          </div>
+          <div class="project-overlay"><i class="fa-solid fa-expand"></i> View Project</div>
+        </div>
+        <div class="project-top-bar"></div>
+        <div class="project-body">
+          <div class="project-number">Project 01</div>
+          <h3 class="project-title">E-Canteen — Smart Canteen Ordering System</h3>
+          <p class="project-desc">Designed and built a full-featured Flutter mobile application for a smart canteen ordering system. Integrated MySQL-powered REST APIs for real-time order processing and developed a comprehensive admin panel for order management, menu configuration, and analytics.</p>
+          <div class="project-tech">
+            <span class="tech-tag" data-tech="Flutter">Flutter</span>
+            <span class="tech-tag" data-tech="Dart">Dart</span>
+            <span class="tech-tag teal" data-tech="MySQL">MySQL</span>
+            <span class="tech-tag teal" data-tech="REST API">REST API</span>
+            <span class="tech-tag" data-tech="Admin Panel">Admin Panel</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Jeetjha-07" class="btn-github" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+            <button class="btn-details" onclick="openModal('modal-ecanteen')"><i class="fa-solid fa-circle-info"></i> Details</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card reveal reveal-delay-2" data-tag="ml" data-images="./images/Project2/home.png,./images/Project2/detail.png,./images/Project2/result.png">
+        <div class="project-img-zone" role="button" aria-label="Open Adidas EDA image gallery">
+          <img src="./images/Project2/home.png" alt="Adidas EDA screenshot" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="project-img-placeholder">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>&#128248; Add Adidas EDA Screenshot</span>
+          </div>
+          <div class="project-overlay"><i class="fa-solid fa-expand"></i> View Project</div>
+        </div>
+        <div class="project-top-bar"></div>
+        <div class="project-body">
+          <div class="project-number">Project 02</div>
+          <h3 class="project-title">Adidas Sales Prediction &amp; Exploratory Data Analysis</h3>
+          <p class="project-desc">Conducted in-depth EDA on Adidas sales data to uncover business insights and trends. Built predictive regression models achieving high accuracy in sales forecasting. Created rich visualizations communicating key findings to stakeholders.</p>
+          <div class="project-tech">
+            <span class="tech-tag" data-tech="Python">Python</span>
+            <span class="tech-tag" data-tech="Pandas">Pandas</span>
+            <span class="tech-tag" data-tech="NumPy">NumPy</span>
+            <span class="tech-tag teal" data-tech="Scikit-learn">Scikit-learn</span>
+            <span class="tech-tag teal" data-tech="Matplotlib">Matplotlib</span>
+            <span class="tech-tag" data-tech="Seaborn">Seaborn</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Jeetjha-07" class="btn-github" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+            <button class="btn-details" onclick="openModal('modal-adidas')"><i class="fa-solid fa-circle-info"></i> Details</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card reveal reveal-delay-3" data-tag="powerbi" data-images="./images/Project3/Powerbi_page-0001.jpg,./images/Project3/Powerbi_page-0002.jpg,./images/Project3/Powerbi_page-0003.jpg,./images/Project3/Powerbi_page-0004.jpg,./images/Project3/Powerbi_page-0005.jpg">
+        <div class="project-img-zone" role="button" aria-label="Adidas Sales Performance Dashboard gallery">
+          <img src="./images/Project3/Powerbi_page-0001.jpg" alt="Adidas Sales Performance Dashboard screenshot" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="project-img-placeholder">
+            <i class="fa-solid fa-chart-bar"></i>
+            <span>&#128248; Add Sales Dashboard Screenshot</span>
+          </div>
+          <div class="project-overlay"><i class="fa-solid fa-expand"></i> View Project</div>
+        </div>
+        <div class="project-top-bar"></div>
+        <div class="project-body">
+          <div class="project-number">Project 03</div>
+          <h3 class="project-title">Adidas Sales Performance Dashboard</h3>
+          <p class="project-desc">Built an interactive Power BI dashboard tracking revenue growth, profit margins, and regional sales trends with drill-down and filter capabilities.</p>
+          <div class="project-tech">
+            <span class="tech-tag" data-tech="Power BI">Power BI</span>
+            <span class="tech-tag" data-tech="SQL">SQL</span>
+            <span class="tech-tag" data-tech="DAX">DAX</span>
+            <span class="tech-tag teal" data-tech="Data Visualization">Data Visualization</span>
+            <span class="tech-tag teal" data-tech="Power Query">Power Query</span>
+          </div>
+          <div class="project-footer">
+            <button class="btn-github" onclick="window.open('https://github.com/Jeetjha-07/Power-BI-Dashboard', '_blank')"><i class="fa-solid fa-chart-line"></i> Open Dashboard</button>
+            <button class="btn-details" onclick="openModal('modal-portfolio')"><i class="fa-solid fa-circle-info"></i> Details</button>
+            <button class="btn-details" onclick="openModal('modal-portfolio')" style="background: #2E7D32; color: #fff;"><i class="fa-solid fa-file-lines"></i> Extra</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-delay-4" data-tag="web" data-images="./images/Project4/home.png">
+        <div class="project-img-zone" role="button" aria-label="Open CodeLoder coaching platform gallery">
+          <img src="./images/Project4/home.png" alt="CodeLoder online coaching platform screenshot" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="project-img-placeholder">
+            <i class="fa-solid fa-chalkboard-teacher"></i>
+            <span>&#128248; Add CodeLoder Screenshot</span>
+          </div>
+          <div class="project-overlay"><i class="fa-solid fa-expand"></i> View Project</div>
+        </div>
+        <div class="project-top-bar"></div>
+        <div class="project-body">
+          <div class="project-number">Project 04</div>
+          <h3 class="project-title">CodeLoder — Online Coaching Platform</h3>
+          <p class="project-desc">Built a full-stack online learning platform providing course catalogs, video lessons, progress tracking, and community chat. Implemented responsive UI, secure authentication, and role-based dashboards for students and instructors.</p>
+          <div class="project-tech">
+            <span class="tech-tag" data-tech="React">React</span>
+            <span class="tech-tag" data-tech="Node.js">Node.js</span>
+            <span class="tech-tag teal" data-tech="Express">Express</span>
+            <span class="tech-tag teal" data-tech="MongoDB">MongoDB</span>
+            <span class="tech-tag" data-tech="JWT">JWT</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Jeetjha-07" class="btn-github" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+            <button class="btn-details" onclick="openModal('modal-chatbot')"><i class="fa-solid fa-circle-info"></i> Details</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+  
+</section>
+
+<!-- PROJECT MODALS -->
+<div class="modal-overlay" id="modal-ecanteen" onclick="closeModalOnOverlay(event, 'modal-ecanteen')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-ecanteen')"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-header">
+      <div class="modal-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div>
+        <span class="modal-tag">Mobile App</span>
+        <h3 class="modal-title">E-Canteen — Smart Canteen Ordering System</h3>
+      </div>
+    </div>
+    <p class="modal-desc">A full-featured Flutter mobile app for smart canteen ordering. The system supports real-time order tracking, menu management, and admin analytics dashboard — built end-to-end including backend REST API integration.</p>
+    <div class="modal-highlights">
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Cross-platform Android & iOS app</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Real-time order processing with MySQL</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Admin panel for menu & order management</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> REST API integration with Dart HTTP client</div>
+    </div>
+    <div class="modal-tech">
+      <span class="tech-tag">Flutter</span>
+      <span class="tech-tag">Dart</span>
+      <span class="tech-tag teal">MySQL</span>
+      <span class="tech-tag teal">REST API</span>
+      <span class="tech-tag">Admin Panel</span>
+    </div>
+    <a href="https://github.com/Jeetjha-07" target="_blank" class="modal-github"><i class="fab fa-github"></i> View on GitHub</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-adidas" onclick="closeModalOnOverlay(event, 'modal-adidas')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-adidas')"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-header">
+      <div class="modal-icon teal"><i class="fa-solid fa-chart-line"></i></div>
+      <div>
+        <span class="modal-tag teal">ML / Data Science</span>
+        <h3 class="modal-title">Adidas Sales Prediction &amp; EDA</h3>
+      </div>
+    </div>
+    <p class="modal-desc">End-to-end data science project on Adidas US sales data — from data cleaning and exploratory analysis to building machine learning models for sales forecasting. Delivered actionable business insights through visualizations.</p>
+    <div class="modal-highlights">
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Deep EDA uncovering regional & seasonal patterns</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Regression models for sales forecasting</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Interactive visualizations with Matplotlib & Seaborn</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Feature engineering & model evaluation</div>
+    </div>
+    <div class="modal-tech">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Pandas</span>
+      <span class="tech-tag">NumPy</span>
+      <span class="tech-tag teal">Scikit-learn</span>
+      <span class="tech-tag teal">Matplotlib</span>
+    </div>
+    <a href="https://github.com/Jeetjha-07" target="_blank" class="modal-github"><i class="fab fa-github"></i> View on GitHub</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-portfolio" onclick="closeModalOnOverlay(event, 'modal-portfolio')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-portfolio')"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-header">
+      <div class="modal-icon"><i class="fa-solid fa-chart-bar"></i></div>
+      <div>
+        <span class="modal-tag">Analytics / BI</span>
+        <h3 class="modal-title">Sales Performance Dashboard</h3>
+      </div>
+    </div>
+    <p class="modal-desc">Designed and implemented an interactive Power BI solution for tracking key revenue, margin, and sales metrics across regions. Delivered robust insights with advanced aggregations and data quality pipelines.</p>
+    <div class="modal-highlights">
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> KPIs for revenue growth, profit margins, and regional sales trends</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Complex DAX measures for YoY growth and rolling averages</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Data Transformation with Power Query for multi-source consistency</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Drill-down visuals, slicers, and responsive reporting pages</div>
+    </div>
+    <div class="modal-tech">
+      <span class="tech-tag">Power BI</span>
+      <span class="tech-tag">SQL</span>
+      <span class="tech-tag teal">DAX</span>
+      <span class="tech-tag teal">Power Query</span>
+      <span class="tech-tag">Data Visualization</span>
+    </div>
+    <a href="https://github.com/Jeetjha-07/Power-BI-Dashboard" target="_blank" class="modal-github"><i class="fab fa-github"></i> View on GitHub</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-chatbot" onclick="closeModalOnOverlay(event, 'modal-chatbot')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-chatbot')"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-header">
+      <div class="modal-icon teal"><i class="fa-solid fa-chalkboard-teacher"></i></div>
+      <div>
+        <span class="modal-tag teal">Web / EdTech</span>
+        <h3 class="modal-title">CodeLoder — Online Coaching Platform</h3>
+      </div>
+    </div>
+    <p class="modal-desc">Developed CodeLoder, a scalable online coaching platform offering structured course paths, live lessons, and student progress insights. Built secure authentication and role-based dashboards for learners and instructors.</p>
+    <div class="modal-highlights">
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Course catalog with video lesson player and assignments</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> User roles: students, instructors, and admins with RBAC</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Progress tracking and achievements system with analytics</div>
+      <div class="highlight-item"><i class="fa-solid fa-check-circle"></i> Real-time messaging and community Q&A features</div>
+    </div>
+    <div class="modal-tech">
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag teal">Express</span>
+      <span class="tech-tag teal">MongoDB</span>
+      <span class="tech-tag">JWT</span>
+    </div>
+    <a href="https://github.com/Jeetjha-07" target="_blank" class="modal-github"><i class="fab fa-github"></i> View on GitHub</a>
+  </div>
+</div>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <!-- <span class="section-tag">// 04. Certificates</span> -->
+      <h2 class="section-title">Certificates<span class="accent"></span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="certs-grid" id="certs-grid">
+
+      <div class="cert-card reveal reveal-delay-1" onclick="openCertLightbox('Git &amp; GitHub', 'CipherSchools', './images/Certifications/Git_&_GitHub.png')">
+        <div class="cert-img-zone">
+          <img src="./images/Certifications/Git_&_GitHub.png" alt="Git & GitHub Certificate"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="cert-img-placeholder" style="display:none;">
+            <i class="fab fa-git-alt"></i>
+            <span>&#128248; Add Certificate Image</span>
+          </div>
+          <div class="cert-overlay"><i class="fa-solid fa-expand"></i> View Certificate</div>
+        </div>
+        <div class="cert-info-row">
+          <div class="cert-icon" style="background:#FFF3E0;color:#E65100;"><i class="fab fa-git-alt"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Git &amp; GitHub</div>
+            <div class="cert-issuer">CipherSchools</div>
+          </div>
+          <span class="cert-badge">Verified</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal reveal-delay-2" onclick="openCertLightbox('Cloud Computing', 'NPTEL — IIT Kharagpur', './images/Certifications/nptel.jpg')">
+        <div class="cert-img-zone">
+          <img src="./images/Certifications/nptel.jpg" alt="Cloud Computing Certificate"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="cert-img-placeholder" style="display:none;">
+            <i class="fa-solid fa-cloud"></i>
+            <span>&#128248; Add Certificate Image</span>
+          </div>
+          <div class="cert-overlay"><i class="fa-solid fa-expand"></i> View Certificate</div>
+        </div>
+        <div class="cert-info-row">
+          <div class="cert-icon" style="background:#E3F2FD;color:#1565C0;"><i class="fa-solid fa-cloud"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Cloud Computing</div>
+            <div class="cert-issuer">NPTEL — IIT Kharagpur</div>
+          </div>
+          <span class="cert-badge">NPTEL</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal reveal-delay-3" onclick="openCertLightbox('Data Structures and Algorithms', 'Lovely Professional University', './images/Certifications/Dsa_certificates.png')">
+        <div class="cert-img-zone">
+          <img src="./images/Certifications/Dsa_certificates.png" alt="DSA Certificate"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="cert-img-placeholder" style="display:none;">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>&#128248; Add Certificate Image</span>
+          </div>
+          <div class="cert-overlay"><i class="fa-solid fa-expand"></i> View Certificate</div>
+        </div>
+        <div class="cert-info-row">
+          <div class="cert-icon" style="background:#E8F5E9;color:#2E7D32;"><i class="fa-solid fa-diagram-project"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Data Structures and Algorithms</div>
+            <div class="cert-issuer">Lovely Professional University</div>
+          </div>
+          <span class="cert-badge">LPU</span>
+        </div>
+      </div>
+
+      <div class="cert-card reveal reveal-delay-4" onclick="openCertLightbox('Intro to Hardware &amp; Operating Systems', 'IBM — Coursera', './images/Certifications/Operating_System.png')">
+        <div class="cert-img-zone">
+          <img src="./images/Certifications/Operating_System.png" alt="IBM Certificate"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="cert-img-placeholder" style="display:none;">
+            <i class="fa-solid fa-microchip"></i>
+            <span>&#128248; Add Certificate Image</span>
+          </div>
+          <div class="cert-overlay"><i class="fa-solid fa-expand"></i> View Certificate</div>
+        </div>
+        <div class="cert-info-row">
+          <div class="cert-icon" style="background:#EDE7F6;color:#4527A0;"><i class="fa-solid fa-microchip"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Intro to Hardware &amp; Operating Systems</div>
+            <div class="cert-issuer">IBM — Coursera</div>
+          </div>
+          <span class="cert-badge">IBM</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATE LIGHTBOX -->
+<div class="lightbox-overlay" id="cert-lightbox" onclick="closeLightbox()">
+  <div class="lightbox-box" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="lightbox-img-area">
+      <div class="lightbox-placeholder">
+        <i class="fa-solid fa-image"></i>
+        <p>Add your certificate image file<br>to the folder to display it here.</p>
+      </div>
+      <img id="lightbox-img" src="" alt="" style="display:none;">
+    </div>
+    <div class="lightbox-gallery-controls">
+      <button class="lightbox-nav prev" onclick="changeLightboxImage(-1)" title="Previous image" aria-label="Previous image">&#10094;</button>
+      <span id="lightbox-counter" class="lightbox-counter"></span>
+      <button class="lightbox-nav next" onclick="changeLightboxImage(1)" title="Next image" aria-label="Next image">&#10095;</button>
+    </div>
+    <div class="lightbox-info">
+      <h4 id="lightbox-title"></h4>
+      <p id="lightbox-issuer"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     EXPERIENCE — Mobile App Dev Flutter (with certification image)
+     ═══════════════════════════════════════════════════════════ -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <!-- <span class="section-tag">// 05. Experience</span> -->
+      <h2 class="section-title">Training &amp; <span class="accent">Experience</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-main">
+        <div class="exp-role">Mobile App Development Using Flutter</div>
+        <div class="exp-company">CipherSchools — Training Program</div>
+        <p class="exp-desc">Completed an intensive training program focused on cross-platform mobile application development using Flutter and Dart.</p>
+        <ul class="exp-points">
+          <li>Developed cross-platform mobile applications for Android and iOS using Flutter framework</li>
+          <li>Mastered Dart programming language and Flutter widget tree architecture</li>
+          <li>Implemented state management patterns and REST API integration in mobile apps</li>
+          <li>Learned professional Git version control workflows and collaborative development practices</li>
+          <li>Built real-world projects including UI components, navigation flows, and data-driven apps</li>
+        </ul>
+        <div class="exp-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">Dart</span>
+          <span class="tech-tag teal">Git</span>
+          <span class="tech-tag teal">GitHub</span>
+          <span class="tech-tag">REST APIs</span>
+        </div>
+
+        <!-- ──────────────────────────────────────────────────────────────
+             FLUTTER CERTIFICATION IMAGE SECTION
+             Replace ./images/flutter-cert.jpg with your actual certificate
+             ────────────────────────────────────────────────────────────── -->
+        <div class="exp-cert-section">
+          <div class="exp-cert-header">
+            <i class="fa-solid fa-certificate"></i>
+            <span>Program Certification</span>
+          </div>
+          <div class="exp-cert-img-wrap"
+               onclick="openCertLightbox('Mobile App Development Using Flutter','CipherSchools','./images/Certifications/Mobile_Development.png')"
+               title="Click to view full certificate">
+            <img
+              src="./images/Certifications/Mobile_Development.png"
+              alt="Flutter Mobile App Development Certification — CipherSchools"
+              class="exp-cert-img"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            >
+            <div class="exp-cert-placeholder">
+              <i class="fa-solid fa-file-certificate"></i>
+              <div class="exp-cert-placeholder-text">
+                <strong>Add Certification Image</strong>
+                <code>./images/flutter-cert.jpg</code>
+              </div>
+            </div>
+            <div class="exp-cert-hover-overlay">
+              <i class="fa-solid fa-expand"></i>
+              <span>View Full Certificate</span>
+            </div>
+          </div>
+          <div class="exp-cert-info">
+            <div class="exp-cert-badge-row">
+              <span class="exp-cert-badge"><i class="fa-solid fa-shield-check"></i> Verified Certificate</span>
+              <span class="exp-cert-issuer">Issued by CipherSchools</span>
+            </div>
+          </div>
+        </div>
+        <!-- END FLUTTER CERTIFICATION IMAGE SECTION -->
+
+      </div>
+      <div class="exp-meta">
+        <span class="exp-duration"><i class="fa-regular fa-calendar"></i> Jun–Jul 2025</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <!-- <span class="section-tag">// 06. Contact</span> -->
+      <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-inner reveal">
+      <p class="contact-subtitle">Whether you're a recruiter with an exciting opportunity, a collaborator with a great idea, or just want to chat about data science — my inbox is always open. Let's build something remarkable together.</p>
+      <div class="contact-links">
+        <button class="contact-btn gmail" onclick="copyEmail()">
+          <i class="fa-solid fa-envelope"></i>
+          <span id="email-btn-text">Gmail</span>
+          <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
+        </button>
+        <a href="https://github.com/Jeetjha-07" class="contact-btn github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://linkedin.com/in/jeet-jha/" class="contact-btn linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      </div>
+      <div class="contact-divider"></div>
+      <a href="./images/Jeet Jha ECV.pdf" download class="cv-download">
+        <i class="fa-solid fa-download"></i> Download My CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">&#169; 2025 <span>Jeet Jha</span>. Built with &#10084;&#65039; and lots of &#9749;</div>
+  <div class="footer-socials">
+    <a href="https://github.com/Jeetjha-07" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://linkedin.com/in/jeet-jha/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:jeetjha9023@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
