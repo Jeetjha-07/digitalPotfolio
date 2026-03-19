@@ -222,10 +222,24 @@ document.querySelectorAll('.skill-tab').forEach(tab => {
 
     document.querySelectorAll('.skill-category').forEach(cat => {
       const catType = cat.getAttribute('data-category');
-      if (filter === 'all' || catType === filter) {
-        cat.classList.remove('hidden');
+
+      if (filter === 'all') {
+        cat.classList.remove('filtered-out', 'selected');
+        cat.style.opacity = '1';
+        cat.style.transform = 'scale(1)';
+        cat.style.pointerEvents = '';
+      } else if (catType === filter) {
+        cat.classList.remove('filtered-out');
+        cat.classList.add('selected');
+        cat.style.opacity = '1';
+        cat.style.transform = 'scale(1.02)';
+        cat.style.pointerEvents = '';
       } else {
-        cat.classList.add('hidden');
+        cat.classList.remove('selected');
+        cat.classList.add('filtered-out');
+        cat.style.opacity = '0.2';
+        cat.style.transform = 'scale(0.96)';
+        cat.style.pointerEvents = 'none';
       }
     });
   });
