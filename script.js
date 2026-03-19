@@ -90,7 +90,7 @@ document.querySelectorAll('.skill-category').forEach(el => barObs.observe(el));
 
 /* ── 9. TYPEWRITER EFFECT ── */
 const roles = [
-  'Data Science Student',
+  'Data Science Enthusiast',
   'ML Enthusiast',
   'Flutter Developer',
   'Software Engineer',
