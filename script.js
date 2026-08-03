@@ -2,6 +2,147 @@
    JEET JHA PORTFOLIO — UPGRADED INTERACTIVE JS
    ============================================= */
 
+const cvUrl = './images/Jeet Jha ECV.pdf';
+const encodedCvUrl = encodeURI(cvUrl);
+const cgpaValueEls = document.querySelectorAll('.cgpa-value');
+const cgpaStatEls = document.querySelectorAll('[data-cgpa-stat]');
+let latestCgpa = null;
+
+function logDebug(message, value) {
+  if (window.console && window.console.log) {
+    console.log(`[CV CGPA] ${message}`, value || '');
+  }
+}
+
+function configurePdfJsWorker() {
+  if (window.pdfjsLib && window.pdfjsLib.GlobalWorkerOptions) {
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = './vendor/pdf.worker.min.js';
+    logDebug('PDF.js worker configured to', window.pdfjsLib.GlobalWorkerOptions.workerSrc);
+  }
+}
+
+configurePdfJsWorker();
+
+function formatCgpa(value) {
+  if (value === null || Number.isNaN(value)) return null;
+  return Number(value).toFixed(2);
+}
+
+function setCgpaDisplay(value) {
+  const formatted = formatCgpa(value);
+  if (!formatted) return;
+
+  latestCgpa = Number(value);
+  cgpaValueEls.forEach(el => {
+    el.textContent = formatted;
+  });
+
+  cgpaStatEls.forEach(el => {
+    el.setAttribute('data-target', String(Math.round(latestCgpa * 100)));
+  });
+
+  window.__portfolioCgpa = { value: latestCgpa, formatted };
+}
+
+function extractCgpaFromText(text) {
+  if (!text) return null;
+
+  const normalized = text.replace(/\s+/g, ' ').trim();
+  const cgpaMatch = normalized.match(/cgpa\b[^0-9]{0,20}([0-9][0-9\s.,]{0,7})/i);
+  if (cgpaMatch) {
+    let sanitized = (cgpaMatch[1] || '').replace(/[\s,]/g, '');
+    sanitized = sanitized.replace(/\.(?=[0-9])/, '.');
+    const rawValue = Number(sanitized);
+    if (!Number.isNaN(rawValue) && rawValue > 0 && rawValue <= 10) {
+      return rawValue;
+    }
+  }
+
+  const simpleMatch = normalized.match(/cgpa\b[^0-9]{0,20}(\d{1,2}(?:\.\d+)?)/i);
+  if (simpleMatch) {
+    const rawValue = Number(simpleMatch[1]);
+    if (!Number.isNaN(rawValue) && rawValue > 0 && rawValue <= 10) {
+      return rawValue;
+    }
+  }
+
+  const fallbackMatch = normalized.match(/(\d{1,2})\s*(?:\/\s*10|\/10|out of 10)/i);
+  if (fallbackMatch) {
+    const rawValue = Number(fallbackMatch[1]);
+    if (!Number.isNaN(rawValue) && rawValue > 0 && rawValue <= 10) {
+      return rawValue;
+    }
+  }
+
+  return null;
+}
+
+async function refreshCgpaFromCv() {
+  if (typeof window.pdfjsLib === 'undefined') {
+    console.warn('PDF.js is not available yet. Scheduling retry.');
+    setTimeout(refreshCgpaFromCv, 300);
+    return;
+  }
+
+  configurePdfJsWorker();
+  logDebug('Starting CV refresh from', encodedCvUrl);
+
+  try {
+    const response = await fetch(encodedCvUrl, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`CV fetch failed with ${response.status}`);
+
+    const pdfData = new Uint8Array(await response.arrayBuffer());
+    const loadingTask = window.pdfjsLib.getDocument({ data: pdfData });
+    const pdf = await loadingTask.promise;
+
+    let fullText = '';
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum += 1) {
+      const page = await pdf.getPage(pageNum);
+      const textContent = await page.getTextContent();
+      fullText += textContent.items.map(item => item.str).join(' ') + '\n';
+    }
+
+    const parsedCgpa = extractCgpaFromText(fullText);
+    logDebug('Extracted CGPA from text', parsedCgpa);
+    if (parsedCgpa !== null) {
+      setCgpaDisplay(parsedCgpa);
+      animateStats();
+    } else {
+      console.warn('CGPA could not be found in the CV PDF text.');
+    }
+  } catch (error) {
+    console.warn('Unable to load CGPA from the CV PDF:', error);
+  }
+}
+
+function animateStats() {
+  document.querySelectorAll('[data-count-type], [data-target], [data-cgpa-stat]').forEach(statEl => {
+    const countType = statEl.getAttribute('data-count-type');
+    const isDecimal = statEl.hasAttribute('data-decimal');
+
+    let target;
+    if (statEl.hasAttribute('data-cgpa-stat') && latestCgpa !== null) {
+      target = Math.round(latestCgpa * 100);
+      statEl.setAttribute('data-target', target);
+    } else if (countType) {
+      target = getDynamicTarget(countType);
+    } else {
+      target = parseInt(statEl.getAttribute('data-target'));
+    }
+
+    if (target !== null && !Number.isNaN(target)) {
+      animateCounter(statEl, target, isDecimal);
+    }
+  });
+}
+
+window.addEventListener('load', refreshCgpaFromCv);
+window.addEventListener('focus', refreshCgpaFromCv);
+window.addEventListener('visibilitychange', () => {
+  if (!document.hidden) refreshCgpaFromCv();
+});
+setInterval(refreshCgpaFromCv, 30000);
+
 /* ── 1. SCROLL PROGRESS BAR ── */
 const progressBar = document.getElementById('scroll-progress');
 function updateProgress() {
@@ -190,21 +331,7 @@ function animateCounter(el, target, isDecimal) {
 const statsObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      document.querySelectorAll('[data-count-type], [data-target]').forEach(statEl => {
-        const countType = statEl.getAttribute('data-count-type');
-        const isDecimal = statEl.hasAttribute('data-decimal');
-
-        let target;
-        if (countType) {
-          target = getDynamicTarget(countType);
-        } else {
-          target = parseInt(statEl.getAttribute('data-target'));
-        }
-
-        if (target !== null && !isNaN(target)) {
-          animateCounter(statEl, target, isDecimal);
-        }
-      });
+      animateStats();
       statsObs.disconnect();
     }
   });
@@ -212,6 +339,8 @@ const statsObs = new IntersectionObserver(entries => {
 
 const statsSection = document.querySelector('.hero-stats');
 if (statsSection) statsObs.observe(statsSection);
+
+refreshCgpaFromCv();
 
 /* ── 11. SKILL FILTER TABS ── */
 document.querySelectorAll('.skill-tab').forEach(tab => {

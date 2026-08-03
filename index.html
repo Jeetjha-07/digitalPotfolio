@@ -84,7 +84,7 @@
           <div class="stat-label">Certificates</div>
         </div>
         <div class="stat">
-          <div class="stat-num" data-target="857" data-decimal="true"><span class="count">0</span></div>
+          <div class="stat-num" data-cgpa-stat="true" data-target="0" data-decimal="true"><span class="count">0</span></div>
           <div class="stat-label">CGPA</div>
         </div>
         <div class="stat">
@@ -151,7 +151,7 @@
             <div class="tl-content">
               <span class="tl-year accent">2026</span>
               <h4 class="tl-title">Currently Learning</h4>
-              <p class="tl-desc">Deep Learning, Neural Networks, and expanding full-stack capabilities. CGPA: 8.63.</p>
+              <p class="tl-desc">Deep Learning, Neural Networks, and expanding full-stack capabilities. CGPA: <span class="cgpa-value"></span>.</p>
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@
 
       <!-- Fun Facts -->
       <div class="fun-facts reveal">
-        <div class="fact-item"><i class="fa-solid fa-graduation-cap"></i><span>8.63 CGPA at LPU</span></div>
+        <div class="fact-item"><i class="fa-solid fa-graduation-cap"></i><span><span class="cgpa-value"></span> CGPA at LPU</span></div>
         <div class="fact-item"><i class="fa-solid fa-fire"></i><span>Currently exploring Deep Learning</span></div>
         <div class="fact-item"><i class="fa-solid fa-code-branch"></i><span>2+ real-world projects shipped</span></div>
         <div class="fact-item"><i class="fa-solid fa-award"></i><span>4+ professional certifications</span></div>
@@ -187,7 +187,7 @@
             <span>Add LPU Campus Image<br><code>./images/lpu-campus.jpeg</code></span>
           </div>
           <div class="edu-img-badge">
-            <i class="fa-solid fa-star"></i> 8.63 CGPA
+            <i class="fa-solid fa-star"></i> <span class="cgpa-value"></span> CGPA
           </div>
         </div>
         <!-- University Details -->
@@ -204,7 +204,7 @@
           <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
           <div class="edu-duration"><i class="fa-regular fa-calendar"></i> 2023 – 2027 (Expected)</div>
           <div class="edu-highlights">
-            <div class="edu-highlight"><i class="fa-solid fa-trophy"></i> CGPA: <strong>8.63</strong></div>
+            <div class="edu-highlight"><i class="fa-solid fa-trophy"></i> CGPA: <strong class="cgpa-value"></strong></div>
             <div class="edu-highlight"><i class="fa-solid fa-book-open"></i> Core: Data Structures, Algorithms, DBMS, OS</div>
             <div class="edu-highlight"><i class="fa-solid fa-flask"></i> Focus: Data Science &amp; Machine Learning</div>
           </div>
@@ -778,6 +778,7 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="./vendor/pdf.min.js?v=2"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
