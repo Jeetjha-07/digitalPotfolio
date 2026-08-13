@@ -526,18 +526,6 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
-/* ── 15. COPY EMAIL ── */
-const EMAIL = 'jeetjha07@gmail.com'; // ← REPLACE with your real email
-
-function copyEmail() {
-  navigator.clipboard.writeText(EMAIL).then(() => {
-    const tooltip = document.getElementById('copy-tooltip');
-    tooltip.classList.add('show');
-    setTimeout(() => tooltip.classList.remove('show'), 2000);
-  }).catch(() => {
-    window.location.href = 'mailto:' + EMAIL;
-  });
-}
 
 /* ── 16. DARK / LIGHT MODE TOGGLE ── */
 const themeBtn = document.getElementById('theme-toggle');
