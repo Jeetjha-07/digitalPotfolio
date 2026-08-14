@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jeet-potfolio.netlify.app/sitemap.xml
